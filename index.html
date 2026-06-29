@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仙途 · 志愿报考天机卷 — 2025江苏高考606分三校对比</title>
+<!-- Chart.js: multi-CDN with fallbacks -->
+<script>
+(function(){
+  var cdns = [
+    'https://lib.baomitu.com/Chart.js/4.4.1/chart.umd.min.js',
+    'https://cdn.bootcdn.net/ajax/libs/Chart.js/4.4.1/chart.umd.min.js',
+    'https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js'
+  ];
+  function tryNext(i) {
+    if (i >= cdns.length) return;
+    var s = document.createElement('script');
+    s.src = cdns[i];
+    s.onerror = function(){ tryNext(i+1); };
+    document.head.appendChild(s);
+  }
+  tryNext(0);
+})();
+</script>
+<style>
+/* ===== Xianxia Global Styles ===== */
+:root {
+  --ink: #0a0c1a;
+  --ink-light: #12152e;
+  --jade: #2dd4a8;
+  --jade-dim: #1a8a6e;
+  --gold: #c9a55c;
+  --gold-light: #e0c87d;
+  --cinnabar: #c23a3a;
+  --parchment: #e8dcc8;
+  --parchment-dim: #c4b99a;
+  --mist: rgba(200, 220, 240, 0.06);
+  --celestial: #5b7fdb;
+  --purple: #8b5cf6;
+  --card-bg: rgba(18, 21, 46, 0.85);
+  --border-gold: rgba(201, 165, 92, 0.3);
+  --text: #d0ccbe;
+  --text-bright: #f0ebe0;
+  --text-dim: #9a9585;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+@font-face {
+  font-family: 'Xianxia';
+  src: local('STKaiti'), local('KaiTi'), local('SimSun'), local('serif');
+}
+
+body {
+  font-family: 'Xianxia', 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+  background: var(--ink);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ===== Starry background ===== */
+.stars {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events: none; z-index: 0;
+}
+
+/* ===== Floating particles ===== */
+.particles {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events: none; z-index: 1;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+.particle.gold { background: var(--gold); box-shadow: 0 0 6px var(--gold-light); }
+.particle.jade { background: var(--jade); box-shadow: 0 0 6px var(--jade); }
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* ===== Mist at bottom ===== */
+.mist-layer {
+  position: fixed; bottom:0; left:0; width:100%; height:200px;
+  background: linear-gradient(to top, rgba(10,12,26,0.95), transparent);
+  pointer-events: none; z-index: 2;
+  animation: mistDrift 8s ease-in-out infinite alternate;
+}
+@keyframes mistDrift {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+/* ===== Main container ===== */
+.container {
+  position: relative; z-index: 3;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+}
+
+/* ===== Navigation ===== */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index: 100;
+  background: rgba(10,12,26,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-gold);
+  padding: 12px 0;
+  transition: all 0.3s;
+}
+.nav .container {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+}
+.nav a {
+  color: var(--parchment-dim); text-decoration: none;
+  padding: 6px 16px; border-radius: 4px;
+  font-size: 0.92rem; transition: all 0.3s;
+  border: 1px solid transparent;
+}
+.nav a:hover, .nav a.active {
+  color: var(--gold-light);
+  border-color: var(--border-gold);
+  background: rgba(201,165,92,0.08);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  position: relative; padding-top: 60px;
+}
+.hero::before {
+  content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(45,212,168,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 60%, rgba(201,165,92,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.mountain-svg {
+  position: absolute; bottom:0; left:0; width:100%; pointer-events: none; z-index: 0;
+}
+.hero-content {
+  text-align: center; position: relative; z-index: 2;
+}
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 50%, #8b6914 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em; margin-bottom: 12px;
+  text-shadow: none;
+  filter: drop-shadow(0 2px 8px rgba(201,165,92,0.3));
+}
+.hero-subtitle {
+  font-size: 1.2rem; color: var(--parchment-dim);
+  letter-spacing: 0.2em; margin-bottom: 40px;
+}
+.student-card {
+  display: inline-block;
+  background: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 28px 40px;
+  backdrop-filter: blur(8px);
+}
+.student-card .name { font-size: 1.5rem; color: var(--gold-light); letter-spacing: 0.1em; }
+.student-card .info-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-top: 16px;
+}
+.student-card .info-item { text-align: center; }
+.student-card .info-label { font-size: 0.8rem; color: var(--text-dim); letter-spacing: 0.05em; }
+.student-card .info-value {
+  font-size: 1.3rem; color: var(--text-bright);
+  font-weight: bold; margin-top: 4px;
+}
+.student-card .info-value.highlight { color: var(--gold-light); font-size: 1.6rem; }
+
+.scroll-hint {
+  position: absolute; bottom: 36px; left:50%; transform: translateX(-50%);
+  color: var(--text-dim); font-size: 0.85rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* ===== Section Common ===== */
+.section {
+  padding: 80px 0; position: relative;
+}
+.section-header {
+  text-align: center; margin-bottom: 56px;
+}
+.section-title {
+  font-size: 2rem; color: var(--gold-light);
+  letter-spacing: 0.15em; margin-bottom: 8px;
+  position: relative; display: inline-block;
+}
+.section-title::after {
+  content: ''; display: block;
+  width: 60%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 12px auto 0;
+}
+.section-desc {
+  color: var(--text-dim); font-size: 0.95rem; letter-spacing: 0.05em;
+}
+
+/* ===== School Cards ===== */
+.school-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-bottom: 40px;
+}
+.school-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s;
+  position: relative; overflow: hidden;
+}
+.school-card::before {
+  content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+  opacity: 0; transition: opacity 0.4s;
+  pointer-events: none;
+}
+.school-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 40px rgba(201,165,92,0.12);
+}
+.school-card:hover::before { opacity: 1; }
+.school-card.nuist::before {
+  background: radial-gradient(circle at 50% 0%, rgba(45,212,168,0.08), transparent 60%);
+}
+.school-card.tyut::before {
+  background: radial-gradient(circle at 50% 0%, rgba(91,127,219,0.08), transparent 60%);
+}
+.school-card.ujs::before {
+  background: radial-gradient(circle at 50% 0%, rgba(139,92,246,0.08), transparent 60%);
+}
+
+.school-badge {
+  display: inline-block; padding: 4px 14px;
+  border-radius: 20px; font-size: 0.8rem;
+  letter-spacing: 0.1em; margin-bottom: 16px;
+}
+.badge-211 { background: rgba(91,127,219,0.2); color: #7b9fef; border: 1px solid rgba(91,127,219,0.3); }
+.badge-shuang { background: rgba(45,212,168,0.2); color: #4de8b8; border: 1px solid rgba(45,212,168,0.3); }
+.badge-sheng { background: rgba(139,92,246,0.2); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+
+.school-name {
+  font-size: 1.25rem; color: var(--text-bright);
+  margin-bottom: 8px; letter-spacing: 0.05em;
+}
+.school-location {
+  color: var(--text-dim); font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+.school-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.school-tag {
+  font-size: 0.75rem; padding: 3px 10px;
+  border-radius: 4px; background: rgba(255,255,255,0.04);
+  color: var(--text-dim); border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===== Comparison Table ===== */
+.comparison-table-wrap {
+  overflow-x: auto; border-radius: 12px;
+  border: 1px solid var(--border-gold);
+  background: var(--card-bg);
+}
+.comparison-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.9rem; min-width: 700px;
+}
+.comparison-table th {
+  background: rgba(201,165,92,0.08);
+  color: var(--gold-light); padding: 14px 16px;
+  text-align: center; font-weight: normal;
+  letter-spacing: 0.08em; border-bottom: 1px solid var(--border-gold);
+}
+.comparison-table th:first-child { text-align: left; width: 160px; }
+.comparison-table td {
+  padding: 12px 16px; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text);
+}
+.comparison-table td:first-child {
+  text-align: left; color: var(--parchment-dim);
+  font-weight: bold; letter-spacing: 0.05em;
+}
+.comparison-table tr:hover td {
+  background: rgba(201,165,92,0.03);
+}
+.rating-stars { color: var(--gold); letter-spacing: 2px; }
+
+/* ===== Score Analysis ===== */
+.score-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.score-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px; padding: 24px;
+}
+.score-card-header {
+  text-align: center; margin-bottom: 20px;
+  padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.score-card-header .uni-name { font-size: 1.1rem; color: var(--text-bright); }
+.score-card-header .cutoff { font-size: 1.6rem; color: var(--gold-light); margin-top: 4px; }
+.score-card-header .cutoff-label { font-size: 0.8rem; color: var(--text-dim); }
+
+.prob-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.prob-item .major { color: var(--text); flex:1; font-size: 0.88rem; }
+.prob-item .score { color: var(--gold); width: 50px; text-align: right; font-size: 0.88rem; }
+.prob-bar-wrap { width: 80px; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; margin: 0 12px; overflow: hidden; }
+.prob-bar { height: 100%; border-radius: 3px; transition: width 1s ease; }
+.prob-bar.high { background: var(--jade); }
+.prob-bar.mid { background: var(--gold); }
+.prob-bar.low { background: var(--cinnabar); }
+
+/* ===== Ranking Section Styles ===== */
+.rank-stat-card {
+  background: var(--card-bg); border: 1px solid var(--border-gold);
+  border-radius: 10px; padding: 20px 16px; text-align: center;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.rank-stat-card::before {
+  content: ''; position: absolute; top:0; left:0; width:100%; height:3px;
+  background: var(--accent, var(--gold));
+}
+.rank-stat-card:hover { transform: translateY(-3px); border-color: var(--accent, var(--gold)); }
+.rank-stat-value { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.05em; }
+.rank-stat-label { font-size: 0.78rem; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.05em; }
+
+.rank-table-wrap {
+  background: var(--card-bg); border: 1px solid var(--border-gold);
+  border-radius: 10px; padding: 20px; overflow-x: auto;
+}
+.rank-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+.rank-table th {
+  color: var(--gold-light); padding: 10px 12px; text-align: center;
+  border-bottom: 1px solid var(--border-gold); font-weight: normal;
+  letter-spacing: 0.05em; background: rgba(201,165,92,0.05);
+}
+.rank-table td {
+  padding: 8px 12px; text-align: center; color: var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.rank-table tr:hover td { background: rgba(201,165,92,0.03); }
+.rank-table .current-row td {
+  background: rgba(201,165,92,0.08); color: var(--gold-light);
+  font-weight: bold;
+}
+
+.rank-analysis-card {
+  background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 18px 20px;
+}
+
+/* Responsive for ranking grid */
+@media (max-width: 900px) {
+  .rank-stat-card .rank-stat-value { font-size: 1.2rem; }
+}
+
+.verdict-badge {
+  display: inline-block; padding: 4px 10px;
+  border-radius: 4px; font-size: 0.75rem; letter-spacing: 0.05em;
+}
+.verdict-rush { background: rgba(194,58,58,0.15); color: #e05555; }
+.verdict-stable { background: rgba(201,165,92,0.15); color: var(--gold-light); }
+.verdict-safe { background: rgba(45,212,168,0.15); color: #4de8b8; }
+
+/* ===== Chart containers ===== */
+.charts-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.chart-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px; padding: 24px;
+}
+.chart-box h3 {
+  text-align: center; color: var(--parchment-dim);
+  font-size: 1rem; letter-spacing: 0.08em; margin-bottom: 16px;
+}
+
+/* ===== Expert Section ===== */
+.expert-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px; padding: 40px;
+  position: relative; overflow: hidden;
+}
+.expert-section::before {
+  content: '师'; position: absolute;
+  top: 20px; right: 30px;
+  font-size: 8rem; color: rgba(201,165,92,0.03);
+  pointer-events: none;
+}
+.recommend-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 32px;
+}
+.recommend-card {
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px; padding: 24px;
+  border: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+.recommend-card .rec-level {
+  font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.recommend-card .rec-school {
+  font-size: 1.3rem; color: var(--text-bright); margin-bottom: 4px;
+}
+.recommend-card .rec-majors {
+  color: var(--text-dim); font-size: 0.85rem; margin: 12px 0;
+}
+.recommend-card .rec-reason {
+  color: var(--text-dim); font-size: 0.82rem; line-height: 1.6;
+  margin-top: 12px; text-align: left;
+}
+
+.level-rush { color: #e05555; }
+.level-stable { color: var(--gold-light); }
+.level-safe { color: var(--jade); }
+
+/* ===== Timeline ===== */
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before {
+  content: ''; position: absolute; left: 15px; top:0; bottom:0;
+  width: 2px; background: linear-gradient(to bottom, var(--gold), var(--jade));
+}
+.timeline-item { margin-bottom: 28px; position: relative; }
+.timeline-item::before {
+  content: ''; position: absolute;
+  left: -33px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%; background: var(--gold);
+  box-shadow: 0 0 8px rgba(201,165,92,0.5);
+}
+.timeline-item h4 { color: var(--gold-light); margin-bottom: 4px; }
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center; padding: 48px 0 32px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  color: var(--text-dim); font-size: 0.82rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .school-cards, .score-grid, .recommend-grid, .charts-row {
+    grid-template-columns: 1fr;
+  }
+  .student-card .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .comparison-table { font-size: 0.78rem; }
+  .hero-title { font-size: 2rem; }
+}
+
+/* ===== Scroll animation ===== */
+.fade-in {
+  opacity: 0; transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Divider ===== */
+.divider {
+  text-align: center; padding: 40px 0;
+  color: var(--gold); font-size: 1.5rem;
+  letter-spacing: 0.3em;
+  opacity: 0.5;
+}
+
+/* ===== Tooltip-like highlights ===== */
+.glow-text {
+  text-shadow: 0 0 20px rgba(201,165,92,0.3);
+}
+</style>
+</head>
+<body>
+
+<!-- Starry background -->
+<canvas class="stars" id="starsCanvas"></canvas>
+
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
+
+<!-- Mist -->
+<div class="mist-layer"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#hero">天机卷</a>
+    <a href="#ranking">排名天机</a>
+    <a href="#overview">三宗概览</a>
+    <a href="#admission">机缘分析</a>
+    <a href="#strength">道法实力</a>
+    <a href="#compare">万象对比</a>
+    <a href="#career">仙途就业</a>
+    <a href="#expert">宗师箴言</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <svg class="mountain-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path fill="rgba(18,21,46,0.95)" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,208C672,213,768,203,864,181.3C960,160,1056,128,1152,122.7C1248,117,1344,139,1392,149.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+    <path fill="rgba(18,21,46,0.8)" d="M0,256L60,245.3C120,235,240,213,360,213.3C480,213,600,235,720,240C840,245,960,235,1080,213.3C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"/>
+  </svg>
+
+  <div class="hero-content">
+    <h1 class="hero-title">仙 途 · 天 机 卷</h1>
+    <p class="hero-subtitle">—— 二〇二五 江苏物化生 志愿报考指南 ——</p>
+
+    <div class="student-card">
+      <div class="name">江 苏 盐 城 · 道 友</div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-label">天元</div>
+          <div class="info-value highlight">606</div>
+          <div class="info-label">分</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">灵根</div>
+          <div class="info-value">物理</div>
+          <div class="info-label">+化学+生物</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">仙籍</div>
+          <div class="info-value">江苏</div>
+          <div class="info-label">盐城</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">道行</div>
+          <div class="info-value">29,638</div>
+          <div class="info-label">位次约</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">—— 向下阅览 以窥天机 ——</div>
+</section>
+
+<!-- ===== RANKING: 一分一段分析 ===== -->
+<section class="section" id="ranking">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">排 名 天 机</h2>
+      <p class="section-desc">以一分一段表解构606分真实位次，去除同分段迷雾</p>
+    </div>
+
+    <!-- Ranking overview cards -->
+    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin-bottom:32px;">
+      <div class="rank-stat-card fade-in" style="--accent:var(--gold-light);">
+        <div class="rank-stat-value" style="color:var(--gold-light);">606</div>
+        <div class="rank-stat-label">天元 · 分数</div>
+      </div>
+      <div class="rank-stat-card fade-in" style="--accent:var(--cinnabar);">
+        <div class="rank-stat-value" style="color:#e05555;">797</div>
+        <div class="rank-stat-label">同分段 · 道友人数</div>
+      </div>
+      <div class="rank-stat-card fade-in" style="--accent:var(--jade);">
+        <div class="rank-stat-value" style="color:var(--jade);">29,638</div>
+        <div class="rank-stat-label">累计位次</div>
+      </div>
+      <div class="rank-stat-card fade-in" style="--accent:var(--celestial);">
+        <div class="rank-stat-value" style="color:var(--celestial);">28,842~29,638</div>
+        <div class="rank-stat-label">实际位次区间</div>
+      </div>
+    </div>
+
+    <!-- Section table -->
+    <div class="fade-in" style="display:grid; grid-template-columns: 1fr 1fr; gap:24px;">
+      <!-- Left: 一分一段表 -->
+      <div class="rank-table-wrap">
+        <h3 style="color:var(--parchment-dim); text-align:center; margin-bottom:16px; letter-spacing:0.1em;">
+          2025江苏物理类 · 606分附近一分一段表
+        </h3>
+        <table class="rank-table">
+          <thead>
+            <tr><th>分数</th><th>同分段人数</th><th>累计人数</th><th>位次区间</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>610</td><td>796</td><td>25,846</td><td>25,051~25,846</td></tr>
+            <tr><td>609</td><td>814</td><td>26,660</td><td>25,847~26,660</td></tr>
+            <tr><td>608</td><td>815</td><td>27,965</td><td>27,151~27,965</td></tr>
+            <tr class="current-row"><td><strong>606</strong></td><td><strong>797</strong></td><td><strong>29,638</strong></td><td><strong>28,842~29,638</strong></td></tr>
+            <tr><td>605</td><td>854</td><td>30,492</td><td>29,639~30,492</td></tr>
+            <tr><td>604</td><td>870</td><td>31,362</td><td>30,493~31,362</td></tr>
+            <tr><td>603</td><td>893</td><td>32,255</td><td>31,363~32,255</td></tr>
+            <tr><td>602</td><td>879</td><td>33,134</td><td>32,256~33,134</td></tr>
+            <tr><td>601</td><td>906</td><td>34,040</td><td>33,135~34,040</td></tr>
+            <tr><td>600</td><td>917</td><td>34,957</td><td>34,041~34,957</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right: Analysis -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="rank-analysis-card fade-in">
+          <h4 style="color:var(--gold-light); margin-bottom:8px; letter-spacing:0.05em;">✦ 何为「同分段人数」？</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim); line-height:1.8;">
+            606分段共有<strong style="color:#e05555;">797人</strong>与你同分。
+            江苏高考同分排序规则为：<strong style="color:var(--parchment);">语文 → 数学 → 外语</strong> 依次比较单科成绩。
+            你在797人中的具体排位，取决于你的语文、数学、外语分数。
+          </p>
+        </div>
+
+        <div class="rank-analysis-card fade-in">
+          <h4 style="color:var(--gold-light); margin-bottom:8px; letter-spacing:0.05em;">✦ 除去同分段后，实际竞争位次</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim); line-height:1.8;">
+            累计位次 <strong style="color:var(--jade);">29,638</strong> 表示全省有29,638人分数 ≥ 606分。<br>
+            去除了与你同分的797人后，<strong style="color:var(--celestial);">28,841</strong>人分数严格高于你。<br>
+            你在全省的<strong style="color:var(--gold-light);">有效竞争位次</strong>约为 28,842 ~ 29,638 名。
+          </p>
+        </div>
+
+        <div class="rank-analysis-card fade-in">
+          <h4 style="color:var(--gold-light); margin-bottom:8px; letter-spacing:0.05em;">✦ 对志愿填报的影响</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim); line-height:1.8;">
+            考虑同分段竞争后，你的<strong style="color:var(--parchment);">保守估计位次为29,638</strong>（排在同分段末尾），
+            <strong style="color:var(--parchment);">乐观估计位次为28,842</strong>（排在同分段前列）。
+            下方机缘分析中，各专业组的录取概率已基于此位次区间重新校准。
+          </p>
+        </div>
+
+        <!-- Tie-breaker visual -->
+        <div class="rank-analysis-card fade-in" style="text-align:center;">
+          <h4 style="color:var(--gold-light); margin-bottom:12px; letter-spacing:0.05em;">✦ 同分段排序规则</h4>
+          <div style="display:flex; justify-content:center; gap:12px; align-items:center; font-size:0.85rem; flex-wrap:wrap;">
+            <span style="background:rgba(201,165,92,0.1); padding:8px 16px; border-radius:6px; color:var(--gold-light);">语文成绩 →</span>
+            <span style="background:rgba(201,165,92,0.1); padding:8px 16px; border-radius:6px; color:var(--gold-light);">数学成绩 →</span>
+            <span style="background:rgba(201,165,92,0.1); padding:8px 16px; border-radius:6px; color:var(--gold-light);">外语成绩</span>
+          </div>
+          <p style="font-size:0.78rem; color:var(--text-dim); margin-top:8px;">
+            若语数外均相同，则比较首选科目（物理）→ 再选科目等级
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== OVERVIEW: Three Schools ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">三 宗 概 览</h2>
+      <p class="section-desc">太原理工 · 江苏大学 · 南京信息工程 — 三座仙门，各有所长</p>
+    </div>
+
+    <div class="school-cards">
+      <!-- 南京信息工程大学 -->
+      <div class="school-card nuist fade-in">
+        <span class="school-badge badge-shuang">双一流</span>
+        <h3 class="school-name">南京信息工程大学</h3>
+        <p class="school-location">金陵 · 江北新区</p>
+        <div class="school-tags">
+          <span class="school-tag">大气科学 A+ 天下第一</span>
+          <span class="school-tag">计算机 ESI 前1‰</span>
+          <span class="school-tag">地球科学 前1‰</span>
+          <span class="school-tag">集中供暖 南方唯一</span>
+          <span class="school-tag">深造率 47.8%</span>
+        </div>
+      </div>
+
+      <!-- 太原理工大学 -->
+      <div class="school-card tyut fade-in">
+        <span class="school-badge badge-211">211 · 双一流</span>
+        <h3 class="school-name">太原理工大学</h3>
+        <p class="school-location">晋阳 · 太原 / 榆次</p>
+        <div class="school-tags">
+          <span class="school-tag">化工 A类 双一流学科</span>
+          <span class="school-tag">安全工程 A+</span>
+          <span class="school-tag">机械 B+ 全国前14</span>
+          <span class="school-tag">国企就业 37%+</span>
+          <span class="school-tag">211身份 含金量高</span>
+        </div>
+      </div>
+
+      <!-- 江苏大学 -->
+      <div class="school-card ujs fade-in">
+        <span class="school-badge badge-sheng">省属重点</span>
+        <h3 class="school-name">江苏大学</h3>
+        <p class="school-location">润州 · 镇江</p>
+        <div class="school-tags">
+          <span class="school-tag">农业工程 A-</span>
+          <span class="school-tag">车辆工程 王牌</span>
+          <span class="school-tag">机械 B+</span>
+          <span class="school-tag">就业率 95%+</span>
+          <span class="school-tag">长三角 区位优</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== ADMISSION: Score Analysis ===== -->
+<section class="section" id="admission">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">机 缘 分 析</h2>
+      <p class="section-desc">以606分（约29,638位次）为基，测算三校各专业组的录取机缘</p>
+    </div>
+
+    <div class="score-grid">
+      <!-- 南京信息工程大学 -->
+      <div class="score-card fade-in">
+        <div class="score-card-header">
+          <div class="uni-name">南京信息工程大学</div>
+          <div class="cutoff">593<span style="font-size:0.9rem"> 最低分</span></div>
+          <div class="cutoff-label">2025江苏物理类 | 位次约41,599</div>
+        </div>
+        <div class="prob-item">
+          <span class="major">12组(物+不限)</span><span class="score">608</span>
+          <div class="prob-bar-wrap"><div class="prob-bar low" style="width:55%"></div></div>
+          <span class="verdict-badge verdict-rush">冲刺</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">10组(物+化)</span><span class="score">606</span>
+          <div class="prob-bar-wrap"><div class="prob-bar mid" style="width:70%"></div></div>
+          <span class="verdict-badge verdict-stable">压线</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">13组(物+不限)</span><span class="score">595</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:95%"></div></div>
+          <span class="verdict-badge verdict-safe">稳妥</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">11组(物+化)</span><span class="score">593</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:100%"></div></div>
+          <span class="verdict-badge verdict-safe">保底</span>
+        </div>
+        <div class="prob-item" style="margin-top:8px; color:var(--jade); font-size:0.82rem;">
+          10组刚好压线，11/13组稳入
+        </div>
+      </div>
+
+      <!-- 太原理工大学 -->
+      <div class="score-card fade-in">
+        <div class="score-card-header">
+          <div class="uni-name">太原理工大学</div>
+          <div class="cutoff">594<span style="font-size:0.9rem"> 最低分</span></div>
+          <div class="cutoff-label">2025江苏物理类 | 位次约29,638</div>
+        </div>
+        <div class="prob-item">
+          <span class="major">电气工程</span><span class="score">614</span>
+          <div class="prob-bar-wrap"><div class="prob-bar low" style="width:20%"></div></div>
+          <span class="verdict-badge verdict-rush">无望</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">机械电子</span><span class="score">606</span>
+          <div class="prob-bar-wrap"><div class="prob-bar mid" style="width:70%"></div></div>
+          <span class="verdict-badge verdict-stable">压线</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">物联网工程</span><span class="score">604</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:85%"></div></div>
+          <span class="verdict-badge verdict-safe">稳妥</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">环境工程</span><span class="score">600</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:100%"></div></div>
+          <span class="verdict-badge verdict-safe">保底</span>
+        </div>
+        <div class="prob-item" style="margin-top:8px; color:var(--gold); font-size:0.82rem;">
+          机械电子/数据科学压线，物联网可稳
+        </div>
+      </div>
+
+      <!-- 江苏大学 -->
+      <div class="score-card fade-in">
+        <div class="score-card-header">
+          <div class="uni-name">江苏大学</div>
+          <div class="cutoff">576<span style="font-size:0.9rem"> 普通最低</span></div>
+          <div class="cutoff-label">2025江苏物理类 | 多专业组可选</div>
+        </div>
+        <div class="prob-item">
+          <span class="major">计算机拔尖(17组)</span><span class="score">608</span>
+          <div class="prob-bar-wrap"><div class="prob-bar low" style="width:55%"></div></div>
+          <span class="verdict-badge verdict-rush">冲刺</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">计算机类(20组)</span><span class="score">598</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:90%"></div></div>
+          <span class="verdict-badge verdict-safe">稳妥</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">电气自动化(21组)</span><span class="score">597</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:92%"></div></div>
+          <span class="verdict-badge verdict-safe">稳妥</span>
+        </div>
+        <div class="prob-item">
+          <span class="major">机械车辆(22组)</span><span class="score">590</span>
+          <div class="prob-bar-wrap"><div class="prob-bar high" style="width:100%"></div></div>
+          <span class="verdict-badge verdict-safe">保底</span>
+        </div>
+        <div class="prob-item" style="margin-top:8px; color:var(--jade); font-size:0.82rem;">
+          除拔尖班外，绝大多数专业组稳入
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== STRENGTH: Discipline Rankings ===== -->
+<section class="section" id="strength">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">道 法 实 力</h2>
+      <p class="section-desc">学科评估、ESI排名、王牌专业全方位对比</p>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-box fade-in">
+        <h3>学科评估雷达图</h3>
+        <canvas id="radarChart" height="350"></canvas>
+      </div>
+      <div class="chart-box fade-in">
+        <h3>ESI学科实力对比</h3>
+        <canvas id="esiChart" height="350"></canvas>
+      </div>
+    </div>
+
+    <div class="charts-row" style="margin-top:24px;">
+      <div class="chart-box fade-in" style="grid-column: 1/-1;">
+        <h3>606分可达专业梯度分析</h3>
+        <canvas id="scoreChart" height="300"></canvas>
+      </div>
+    </div>
+
+    <!-- 三校学科实力详解 -->
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:32px;">
+      <!-- 南信大 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--jade);">
+        <h4 style="color:var(--jade); text-align:center; margin-bottom:14px; letter-spacing:0.08em;">南京信息工程大学</h4>
+        <div style="font-size:0.82rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">A+ 学科：</strong>大气科学（全国第1）</p>
+          <p><strong style="color:var(--gold-light);">ESI前1‰：</strong>地球科学、计算机科学、环境与生态学</p>
+          <p><strong style="color:var(--gold-light);">ESI前1%：</strong>共10个（工程学、化学、数学等）</p>
+          <p><strong style="color:var(--gold-light);">国家级一流专业：</strong>大气科学、计算机、电子信息、环境科学等30个</p>
+          <p><strong style="color:var(--gold-light);">博士点：</strong>11个一级学科（大气、计算机、通信、数学等）</p>
+          <p><strong style="color:var(--gold-light);">全国重点实验室：</strong>气候系统预测与变化应对</p>
+          <p style="margin-top:8px; color:var(--jade);">招牌：气象黄埔军校，计算机ESI千分之一</p>
+        </div>
+      </div>
+
+      <!-- 太原理工 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--celestial);">
+        <h4 style="color:var(--celestial); text-align:center; margin-bottom:14px; letter-spacing:0.08em;">太原理工大学</h4>
+        <div style="font-size:0.82rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">A类学科：</strong>化学工程（A）、安全工程（A+ 全国第7）</p>
+          <p><strong style="color:var(--gold-light);">B+学科：</strong>机械工程、化学工程与技术</p>
+          <p><strong style="color:var(--gold-light);">ESI前1‰：</strong>工程学、材料科学</p>
+          <p><strong style="color:var(--gold-light);">ESI前1%：</strong>共7个（化学、计算机、物理等）</p>
+          <p><strong style="color:var(--gold-light);">国家级一流专业：</strong>机械、电气、化工、计算机等41个</p>
+          <p><strong style="color:var(--gold-light);">博士点：</strong>18个一级学科</p>
+          <p><strong style="color:var(--gold-light);">国家重点学科：</strong>化学工艺、材料加工工程、采矿工程</p>
+          <p style="margin-top:8px; color:var(--celestial);">招牌：211身份、煤化工黄埔、国企直通车</p>
+        </div>
+      </div>
+
+      <!-- 江苏大学 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--purple);">
+        <h4 style="color:var(--purple); text-align:center; margin-bottom:14px; letter-spacing:0.08em;">江苏大学</h4>
+        <div style="font-size:0.82rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">A-学科：</strong>农业工程（全国前10%）</p>
+          <p><strong style="color:var(--gold-light);">B+学科：</strong>机械、动力工程、食品科学</p>
+          <p><strong style="color:var(--gold-light);">B学科：</strong>计算机、材料、控制、环境、管理</p>
+          <p><strong style="color:var(--gold-light);">ESI前1‰：</strong>工程科学、化学、农业科学、材料科学</p>
+          <p><strong style="color:var(--gold-light);">国家级一流专业：</strong>机械、车辆、电气、计算机等30个</p>
+          <p><strong style="color:var(--gold-light);">博士点：</strong>15个一级学科</p>
+          <p><strong style="color:var(--gold-light);">国家重点学科：</strong>流体机械及工程、农业电气化与自动化</p>
+          <p style="margin-top:8px; color:var(--purple);">招牌：中国农机黄埔、车辆工程王牌、ESI千分之一最多</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键指标对比条 -->
+    <div class="fade-in" style="margin-top:24px; background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:24px;">
+      <h4 style="text-align:center; color:var(--parchment-dim); margin-bottom:18px; letter-spacing:0.1em;">三校核心学术指标横向对比</h4>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border-gold);">
+              <th style="padding:10px; text-align:left; color:var(--parchment-dim);">指标</th>
+              <th style="padding:10px; text-align:center; color:var(--jade);">南信大</th>
+              <th style="padding:10px; text-align:center; color:var(--celestial);">太原理工</th>
+              <th style="padding:10px; text-align:center; color:var(--purple);">江苏大学</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">国家标签</td><td style="padding:8px; text-align:center; color:var(--jade);">双一流</td><td style="padding:8px; text-align:center; color:var(--celestial);">211·双一流</td><td style="padding:8px; text-align:center; color:var(--purple);">省属重点</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">软科全国排名</td><td style="padding:8px; text-align:center;">~95</td><td style="padding:8px; text-align:center;">~108</td><td style="padding:8px; text-align:center; color:var(--gold-light);">~76（最高）</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">ESI前1‰学科</td><td style="padding:8px; text-align:center;">3</td><td style="padding:8px; text-align:center;">2</td><td style="padding:8px; text-align:center; color:var(--gold-light);">4（最多）</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">ESI前1%学科</td><td style="padding:8px; text-align:center; color:var(--gold-light);">10</td><td style="padding:8px; text-align:center;">7</td><td style="padding:8px; text-align:center;">10</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">一级博士点</td><td style="padding:8px; text-align:center;">11</td><td style="padding:8px; text-align:center; color:var(--gold-light);">18（最多）</td><td style="padding:8px; text-align:center;">15</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">A类学科数</td><td style="padding:8px; text-align:center; color:var(--gold-light);">1（A+全国第1）</td><td style="padding:8px; text-align:center; color:var(--gold-light);">2（A+安全/A化工）</td><td style="padding:8px; text-align:center;">1（A-）</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">国家级一流专业</td><td style="padding:8px; text-align:center;">~30</td><td style="padding:8px; text-align:center; color:var(--gold-light);">41（最多）</td><td style="padding:8px; text-align:center;">~30</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">全国重点实验室</td><td style="padding:8px; text-align:center; color:var(--gold-light);">1</td><td style="padding:8px; text-align:center;">—</td><td style="padding:8px; text-align:center;">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== COMPARE: Multi-dimension ===== -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">万 象 对 比</h2>
+      <p class="section-desc">地理 · 宿舍 · 饮食 · 交通 · 文化 · 就业 — 六道轮回，逐一参详</p>
+    </div>
+
+    <div class="comparison-table-wrap fade-in">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th>南京信息工程大学</th>
+            <th>太原理工大学</th>
+            <th>江苏大学</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>学校层次</td>
+            <td><span class="badge-shuang" style="font-size:0.8rem;padding:3px 10px;border-radius:20px;">双一流</span></td>
+            <td><span class="badge-211" style="font-size:0.8rem;padding:3px 10px;border-radius:20px;">211 · 双一流</span></td>
+            <td><span class="badge-sheng" style="font-size:0.8rem;padding:3px 10px;border-radius:20px;">省属重点</span></td>
+          </tr>
+          <tr>
+            <td>地理位置</td>
+            <td>南京江北新区，长三角核心圈，距盐城约250km</td>
+            <td>太原市区+晋中榆次大学城，距盐城约850km</td>
+            <td>镇江市区，距盐城约180km，高铁至南京仅十几分钟</td>
+          </tr>
+          <tr>
+            <td>宿舍环境</td>
+            <td>
+              <span class="rating-stars">★★★★★</span><br>
+              四人间上床下桌，空调+集中供暖（南方唯一），独卫独浴，全国满意度第9
+            </td>
+            <td>
+              <span class="rating-stars">★★☆☆☆</span><br>
+              四/六人间，无空调（最大痛点），公共卫浴，明向校区较新但偏远
+            </td>
+            <td>
+              <span class="rating-stars">★★★☆☆</span><br>
+              四人间为主，空调全覆盖，公共卫浴，设施因区而异，D/E/F区较好
+            </td>
+          </tr>
+          <tr>
+            <td>食堂餐饮</td>
+            <td>
+              <span class="rating-stars">★★★★★</span><br>
+              七大食堂覆盖全国风味，瑞幸/蜜雪/罗森等齐全
+            </td>
+            <td>
+              <span class="rating-stars">★★★☆☆</span><br>
+              明向校区3栋餐饮楼5层食堂，山西面食丰富，口味偏北方
+            </td>
+            <td>
+              <span class="rating-stars">★★★★☆</span><br>
+              11个食堂/餐厅，六食堂口碑最佳，小吃街丰富
+            </td>
+          </tr>
+          <tr>
+            <td>交通便利</td>
+            <td>
+              <span class="rating-stars">★★★★★</span><br>
+              南京地铁直达，江北新区发展快，高铁网络发达
+            </td>
+            <td>
+              <span class="rating-stars">★★★☆☆</span><br>
+              迎西校区地铁1号线直达，明向校区偏远无地铁
+            </td>
+            <td>
+              <span class="rating-stars">★★★★☆</span><br>
+              镇江站公交直达，城市不大出行便利，高铁十几分钟到南京
+            </td>
+          </tr>
+          <tr>
+            <td>文化底蕴</td>
+            <td>
+              金陵龙脉，六朝古都；学校前身气象学院，有"气象黄埔"之誉；校园人文与科技交融
+            </td>
+            <td>
+              三晋大地，晋商故里；百年学府传承（1902年西学专斋），煤炭能源文化深厚
+            </td>
+            <td>
+              江南水乡，历史名城；镇江三千年文明，"中国农机黄埔"，工科务实文化
+            </td>
+          </tr>
+          <tr>
+            <td>毕业生薪资</td>
+            <td>应届约5,000-5,500元/月，5年后约8,000-9,100元</td>
+            <td>应届约5,800元/月，5年后约11,000元</td>
+            <td>应届约6,500元/月，5年后约10,000元</td>
+          </tr>
+          <tr>
+            <td>就业率</td>
+            <td>本科约80%（深造率47.8%拉低直接就业）</td>
+            <td>本科约88%，王牌专业95%+</td>
+            <td>本科约95%，王牌专业98%+</td>
+          </tr>
+          <tr>
+            <td>国企/名企占比</td>
+            <td>国企28%，世界500强约12%</td>
+            <td>国企37-45%，约30%进世界500强</td>
+            <td>以长三角民企和外企为主</td>
+          </tr>
+          <tr>
+            <td>深造率</td>
+            <td><strong style="color:var(--jade)">47.8%</strong>（三校最高）</td>
+            <td>约26%</td>
+            <td>约21%</td>
+          </tr>
+          <tr>
+            <td>保研率</td>
+            <td>约8-12%</td>
+            <td>约12-15%（试验班18-25%）</td>
+            <td>约5-8%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== CAREER: Employment & Salary ===== -->
+<section class="section" id="career">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">仙 途 就 业</h2>
+      <p class="section-desc">三校毕业生去向、薪资成长、行业分布纵览</p>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-box fade-in">
+        <h3>毕业生薪资成长曲线（元/月）</h3>
+        <canvas id="salaryChart" height="300"></canvas>
+      </div>
+      <div class="chart-box fade-in">
+        <h3>就业方向分布</h3>
+        <canvas id="employmentChart" height="300"></canvas>
+      </div>
+    </div>
+
+    <!-- 三校就业详情 -->
+    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-top:32px;">
+      <!-- 南信大就业 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--jade);">
+        <h4 style="color:var(--jade); text-align:center; letter-spacing:0.08em; margin-bottom:4px;">南京信息工程大学</h4>
+        <p style="text-align:center; font-size:0.78rem; color:var(--text-dim); margin-bottom:14px;">"气象黄埔 · 深造强校"</p>
+        <div style="font-size:0.8rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">应届均薪：</strong>5,000-5,500元/月</p>
+          <p><strong style="color:var(--gold-light);">5年经验：</strong>8,500-9,100元/月</p>
+          <p><strong style="color:var(--gold-light);">深造率：</strong><span style="color:var(--jade);">47.8%</span>（三校最高）</p>
+          <p><strong style="color:var(--gold-light);">体制内：</strong>考公考编19.1% + 国企28%</p>
+          <hr style="border-color:rgba(255,255,255,0.05); margin:10px 0;">
+          <p style="color:var(--gold-light); font-weight:bold;">核心雇主：</p>
+          <p>• 气象部门 — 年招近600人（事业编）</p>
+          <p>• 中国电信 — 累计330+人</p>
+          <p>• 中国移动 — 累计150+人</p>
+          <p>• 银行系统 — 六大行累计600+人</p>
+          <p>• 中电科 — 累计120+人</p>
+          <p>• 烽火通信 — 累计110+人</p>
+          <p style="margin-top:6px; color:var(--jade);">就业特点：体制内就业强势，长三角集中（67%），气象系统全国统治力</p>
+        </div>
+      </div>
+
+      <!-- 太原理工就业 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--celestial);">
+        <h4 style="color:var(--celestial); text-align:center; letter-spacing:0.08em; margin-bottom:4px;">太原理工大学</h4>
+        <p style="text-align:center; font-size:0.78rem; color:var(--text-dim); margin-bottom:14px;">"央企重镇 · 能源霸主"</p>
+        <div style="font-size:0.8rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">应届均薪：</strong>5,800元/月</p>
+          <p><strong style="color:var(--gold-light);">5年经验：</strong>11,000元/月</p>
+          <p><strong style="color:var(--gold-light);">国企占比：</strong><span style="color:var(--celestial);">37-45%</span>（三校最高）</p>
+          <p><strong style="color:var(--gold-light);">世界500强：</strong>约30%入职</p>
+          <hr style="border-color:rgba(255,255,255,0.05); margin:10px 0;">
+          <p style="color:var(--gold-light); font-weight:bold;">核心雇主（年签约人数）：</p>
+          <p>• 中建 — 143人/年</p>
+          <p>• 国家电网 — 138人/年</p>
+          <p>• 中铁 — 130人/年</p>
+          <p>• 中铁建 — 64人/年</p>
+          <p>• 中车 — 40人/年</p>
+          <p>• 中石油/中石化 — 15人+/年</p>
+          <p style="margin-top:6px; color:var(--celestial);">就业特点：央企就业率极高，能源/电力/建筑三大板块统治力，华北地区无可替代</p>
+        </div>
+      </div>
+
+      <!-- 江苏大学就业 -->
+      <div class="fade-in" style="background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:20px; border-top:3px solid var(--purple);">
+        <h4 style="color:var(--purple); text-align:center; letter-spacing:0.08em; margin-bottom:4px;">江苏大学</h4>
+        <p style="text-align:center; font-size:0.78rem; color:var(--text-dim); margin-bottom:14px;">"制造脊梁 · 长三角深耕"</p>
+        <div style="font-size:0.8rem; line-height:1.9; color:var(--text-dim);">
+          <p><strong style="color:var(--gold-light);">应届均薪：</strong><span style="color:var(--gold-light);">6,500元/月</span>（三校最高）</p>
+          <p><strong style="color:var(--gold-light);">5年经验：</strong>10,000元/月</p>
+          <p><strong style="color:var(--gold-light);">就业率：</strong><span style="color:var(--purple);">94.8-95%+</span>（三校最高）</p>
+          <p><strong style="color:var(--gold-light);">长三角就业：</strong>80%+（三校最高）</p>
+          <hr style="border-color:rgba(255,255,255,0.05); margin:10px 0;">
+          <p style="color:var(--gold-light); font-weight:bold;">核心雇主：</p>
+          <p>• 上汽集团 — 车辆/机械专业主要去向</p>
+          <p>• 比亚迪 — 新能源方向热招</p>
+          <p>• 徐工集团 — 机械/农机装备</p>
+          <p>• 一汽/东风/吉利 — 车企全覆盖</p>
+          <p>• 华为（南研所）— IT方向</p>
+          <p>• 国家电网/南瑞 — 电气专业</p>
+          <p style="margin-top:6px; color:var(--purple);">就业特点：制造业根基深厚，车企覆盖面广，就业率高且薪资起点好，长三角生态圈完善</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 就业地域分布对比 -->
+    <div class="fade-in" style="margin-top:24px; background:var(--card-bg); border:1px solid var(--border-gold); border-radius:10px; padding:24px;">
+      <h4 style="text-align:center; color:var(--parchment-dim); margin-bottom:18px; letter-spacing:0.1em;">就业地域与行业分布对比</h4>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border-gold);">
+              <th style="padding:10px; text-align:left; color:var(--parchment-dim);">指标</th>
+              <th style="padding:10px; text-align:center; color:var(--jade);">南信大</th>
+              <th style="padding:10px; text-align:center; color:var(--celestial);">太原理工</th>
+              <th style="padding:10px; text-align:center; color:var(--purple);">江苏大学</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">主要就业区域</td><td style="padding:8px; text-align:center;">江苏67% / 长三角为主</td><td style="padding:8px; text-align:center;">太原22% + 北京21% + 上海8%</td><td style="padding:8px; text-align:center; color:var(--gold-light);">江苏75%+ / 长三角80%+</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">第一行业</td><td style="padding:8px; text-align:center;">IT软件12% / 气象系统</td><td style="padding:8px; text-align:center;">制造业28% / 能源化工</td><td style="padding:8px; text-align:center;">制造业30% / 汽车装备</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">公务员/事业编</td><td style="padding:8px; text-align:center; color:var(--gold-light);">19.1%（最高）</td><td style="padding:8px; text-align:center;">中等</td><td style="padding:8px; text-align:center;">中等</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">升学至双一流比例</td><td style="padding:8px; text-align:center; color:var(--gold-light);">~90%（最高）</td><td style="padding:8px; text-align:center;">—</td><td style="padding:8px; text-align:center;">—</td></tr>
+            <tr><td style="padding:8px 10px; color:var(--parchment-dim);">典型高薪方向</td><td style="padding:8px; text-align:center;">互联网大厂 18-25万/年</td><td style="padding:8px; text-align:center;">国家电网 10-15万/年</td><td style="padding:8px; text-align:center;">车企/IT 12-20万/年</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 606分报考三校的就业前景总结 -->
+    <div class="fade-in" style="margin-top:24px; display:grid; grid-template-columns: repeat(3,1fr); gap:16px;">
+      <div style="background:rgba(45,212,168,0.04); border-radius:8px; padding:14px; border:1px solid rgba(45,212,168,0.12);">
+        <p style="font-size:0.82rem; color:var(--jade); font-weight:bold; text-align:center;">南信大：深造型</p>
+        <p style="font-size:0.78rem; color:var(--text-dim); margin-top:6px;">47.8%深造率意味着近半同学读研。长远来看学历提升空间最大，适合不急于就业、愿意通过考研冲击更高层次的同学。</p>
+      </div>
+      <div style="background:rgba(91,127,219,0.04); border-radius:8px; padding:14px; border:1px solid rgba(91,127,219,0.12);">
+        <p style="font-size:0.82rem; color:var(--celestial); font-weight:bold; text-align:center;">太原理工：体制型</p>
+        <p style="font-size:0.78rem; color:var(--text-dim); margin-top:6px;">37-45%国企就业率，211身份在央企校招中优势显著。如果你追求稳定、想进国家电网/中建/中铁等央企，这是最佳跳板。</p>
+      </div>
+      <div style="background:rgba(139,92,246,0.04); border-radius:8px; padding:14px; border:1px solid rgba(139,92,246,0.12);">
+        <p style="font-size:0.82rem; color:var(--purple); font-weight:bold; text-align:center;">江苏大学：就业型</p>
+        <p style="font-size:0.78rem; color:var(--text-dim); margin-top:6px;">95%就业率+6,500起薪，想本科毕业直接工作的最佳选择。长三角制造业生态完善，车企/装备制造岗位充足。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">◇ ◈ ◇</div>
+
+<!-- ===== EXPERT: Recommendation ===== -->
+<section class="section" id="expert">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2 class="section-title">宗 师 箴 言</h2>
+      <p class="section-desc">以专家视角，为606分物化生道友指点迷津</p>
+    </div>
+
+    <div class="expert-section fade-in">
+      <!-- 核心判断 -->
+      <h3 style="color:var(--gold-light); font-size:1.2rem; margin-bottom:16px; letter-spacing:0.1em;">
+        一、三校综合评判
+      </h3>
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-bottom:32px;">
+        <div style="background:rgba(45,212,168,0.05); border-radius:8px; padding:16px; border-left:3px solid var(--jade);">
+          <strong style="color:var(--jade);">南京信息工程大学</strong>
+          <p style="font-size:0.85rem; margin-top:6px; color:var(--text-dim);">
+            双一流身份 + 南京区位 + 最高深造率。大气科学全国第一，计算机ESI前1‰。
+            10组606压线是最佳切入点。适合有深造意向、看重城市发展的考生。
+          </p>
+        </div>
+        <div style="background:rgba(91,127,219,0.05); border-radius:8px; padding:16px; border-left:3px solid var(--celestial);">
+          <strong style="color:var(--celestial);">太原理工大学</strong>
+          <p style="font-size:0.85rem; margin-top:6px; color:var(--text-dim);">
+            211金字招牌 + 国企就业优势 + 保研率最高。但地理位置偏远、宿舍无空调是硬伤。
+            适合追求211身份、愿意在能源/制造领域发展的考生。
+          </p>
+        </div>
+        <div style="background:rgba(139,92,246,0.05); border-radius:8px; padding:16px; border-left:3px solid var(--purple);">
+          <strong style="color:var(--purple);">江苏大学</strong>
+          <p style="font-size:0.85rem; margin-top:6px; color:var(--text-dim);">
+            离家最近 + 就业率最高 + 薪资起点好。但无非国家标签是最大短板。
+            适合追求稳妥、想在长三角就业、不执着于名校标签的考生。
+          </p>
+        </div>
+      </div>
+
+      <!-- 志愿梯度建议 -->
+      <h3 style="color:var(--gold-light); font-size:1.2rem; margin-bottom:16px; letter-spacing:0.1em;">
+        二、冲-稳-保 志愿梯度建议
+      </h3>
+      <div class="recommend-grid">
+        <div class="recommend-card">
+          <div class="rec-level level-rush">⚔ 冲刺之选</div>
+          <div class="rec-school">南京信息工程大学 10组</div>
+          <div style="color:var(--gold); font-size:0.9rem;">606分压线 · 概率约60%</div>
+          <div class="rec-majors">计算机类、电子信息类、环境科学等</div>
+          <div class="rec-reason">
+            <strong>理由：</strong>10组含计算机、电子信息等热门工科，606分刚好等于2025年最低分，有一定冲刺价值。同时可报08组大气科学拔尖班作为更高冲刺（但636分概率极低）。
+          </div>
+        </div>
+
+        <div class="recommend-card">
+          <div class="rec-level level-stable">✦ 稳妥之选</div>
+          <div class="rec-school">南信大11/13组 | 江大20/21组</div>
+          <div style="color:var(--gold); font-size:0.9rem;">概率85%以上</div>
+          <div class="rec-majors">计算机、软件、电气、自动化、电子信息</div>
+          <div class="rec-reason">
+            <strong>核心推荐：</strong>南信大11/13组（593-595分，超线11-13分）稳妥录取，享受双一流平台+南京区位+高深造率。江苏大学20/21组（597-598分）计算机电气类专业实力强劲，就业率高，是退而求其次的最佳选择。
+          </div>
+        </div>
+
+        <div class="recommend-card">
+          <div class="rec-level level-safe">🛡 保底之选</div>
+          <div class="rec-school">太原理工物联网/化工 | 江大22/23组</div>
+          <div style="color:var(--jade); font-size:0.9rem;">概率95%以上</div>
+          <div class="rec-majors">物联网、化工、机械、车辆、能源动力</div>
+          <div class="rec-reason">
+            <strong>理由：</strong>太原理工物联网604分、化工598分都在606以下，且拥有211身份保底。江苏大学22/23组（588-590分）机械车辆能源类专业作为省内保底也极为稳妥。两者可并行填报，确保万无一失。
+          </div>
+        </div>
+      </div>
+
+      <!-- 未来规划 -->
+      <h3 style="color:var(--gold-light); font-size:1.2rem; margin:32px 0 16px; letter-spacing:0.1em;">
+        三、长远发展规划
+      </h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>本科阶段（2025-2029）</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim);">
+            若入南信大：主攻计算机/电子信息，辅修大气科学交叉方向，争取保研资格（深造率47.8%的生态对你有利）。<br>
+            若入江苏大学：深耕车辆/电气工程，多参加长三角企业实习，积累行业人脉。<br>
+            若入太原理工：打好工科基础，利用211身份争取保研到东部985高校。
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4>深造阶段（2029-2032）</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim);">
+            物化生组合 + 工科本科背景，考研可向人工智能、新能源、环境科学等交叉领域发展。<br>
+            南信大毕业可优先考虑本校大气科学+AI交叉、南大/东南的计算机方向。<br>
+            太原理工毕业可冲刺清华、浙大、上交的工科强校。
+          </p>
+        </div>
+        <div class="timeline-item">
+          <h4>职业发展（2032+）</h4>
+          <p style="font-size:0.88rem; color:var(--text-dim);">
+            江苏省内：南京、苏州的IT/智能制造产业集聚区是天然去向。<br>
+            若去太原：能源/煤炭智能化转型（"双碳"大背景）有巨大空间。<br>
+            若留镇江：长三角装备制造生态圈，就业稳定且薪资增长可期。
+          </p>
+        </div>
+      </div>
+
+      <!-- 终极建议 -->
+      <div style="margin-top:32px; padding:24px; background:rgba(201,165,92,0.06); border-radius:10px; border:1px solid var(--border-gold); text-align:center;">
+        <h3 style="color:var(--gold-light); font-size:1.3rem; letter-spacing:0.1em; margin-bottom:12px;">
+          ⚡ 宗师终极建议
+        </h3>
+        <p style="font-size:1rem; line-height:1.9; color:var(--parchment);">
+          <strong style="color:var(--gold-light);">首选：南京信息工程大学</strong> — 10组冲刺 + 11/13组稳妥。<br>
+          双一流身份、南京区位、最高深造率、最好宿舍，是606分段性价比最高的选择。<br>
+          <strong style="color:var(--gold);">次选：江苏大学</strong> — 离家近、就业好、专业扎实，适合想留省内稳定发展的考生。<br>
+          <strong style="color:var(--celestial);">备选：太原理工大学</strong> — 211身份是最大亮点，但地理位置和宿舍条件需要慎重考虑。<br><br>
+          <span style="font-size:0.9rem; color:var(--text-dim);">
+            志愿填报策略：<br>
+            冲：南信大10组(606) / 江大17组(608)<br>
+            稳：南信大11组(593) / 南信大13组(595) / 江大20组(598) / 江大21组(597)<br>
+            保：太原理工物联网(604) / 江大22组(590)
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>仙途 · 天机卷 — 2025江苏高考志愿报考指南</p>
+    <p style="margin-top:8px;">数据来源：各校本科招生网、教育部学科评估、软科排名、就业质量报告</p>
+    <p style="margin-top:4px; color:rgba(255,255,255,0.3);">仅供参考，最终以江苏省教育考试院及学校官方公布为准</p>
+  </div>
+</footer>
+
+<script>
+// ===== Starry Background =====
+(function() {
+  const canvas = document.getElementById('starsCanvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize(); window.addEventListener('resize', resize);
+
+  for (let i = 0; i < 120; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.3,
+      twinkle: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.02 + 0.005
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      s.twinkle += s.speed;
+      const alpha = 0.3 + Math.sin(s.twinkle) * 0.3;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,210,230,${alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ===== Floating Particles =====
+(function() {
+  const container = document.getElementById('particles');
+  function createParticle() {
+    const el = document.createElement('div');
+    el.className = 'particle ' + (Math.random() > 0.5 ? 'gold' : 'jade');
+    el.style.left = Math.random() * 100 + '%';
+    el.style.width = el.style.height = (Math.random() * 4 + 1) + 'px';
+    el.style.animationDuration = (Math.random() * 12 + 8) + 's';
+    el.style.animationDelay = Math.random() * 10 + 's';
+    container.appendChild(el);
+    setTimeout(() => el.remove(), 20000);
+  }
+  setInterval(createParticle, 400);
+  for (let i = 0; i < 15; i++) setTimeout(createParticle, i * 300);
+})();
+
+// ===== Scroll Animations =====
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+
+// ===== Nav Active State =====
+(function() {
+  const nav = document.getElementById('nav');
+  const links = nav.querySelectorAll('a');
+  const sections = [];
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ el, link: a });
+  });
+
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    sections.forEach(s => {
+      if (window.scrollY >= s.el.offsetTop - 200) current = s;
+    });
+    links.forEach(a => a.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  });
+})();
+
+// ===== Chart.js — Safe initialization =====
+(function() {
+if (typeof Chart === 'undefined') {
+  // Chart.js failed to load — show fallback tables
+  document.querySelectorAll('.chart-box').forEach(function(box) {
+    box.innerHTML = '<p style="text-align:center;color:var(--gold);padding:40px;">✦ 图表加载中，请检查网络连接 ✦</p>';
+  });
+  return;
+}
+
+Chart.defaults.color = '#b0ac9a';
+Chart.defaults.borderColor = 'rgba(201,165,92,0.15)';
+Chart.defaults.font.family = "'STKaiti','KaiTi','Noto Serif SC',serif";
+
+try {
+// Radar: Discipline Assessment
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['大气科学','计算机','机械','电气','化工','环境','信息通信','材料','安全工程','农业工程'],
+    datasets: [
+      {
+        label: '南京信息工程大学',
+        data: [100, 85, 40, 35, 30, 75, 70, 40, 20, 15],
+        borderColor: '#2dd4a8',
+        backgroundColor: 'rgba(45,212,168,0.08)',
+        borderWidth: 2,
+      },
+      {
+        label: '太原理工大学',
+        data: [5, 55, 75, 65, 85, 55, 40, 65, 95, 30],
+        borderColor: '#5b7fdb',
+        backgroundColor: 'rgba(91,127,219,0.08)',
+        borderWidth: 2,
+      },
+      {
+        label: '江苏大学',
+        data: [8, 65, 80, 70, 50, 50, 50, 60, 35, 90],
+        borderColor: '#8b5cf6',
+        backgroundColor: 'rgba(139,92,246,0.08)',
+        borderWidth: 2,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { r: { min:0, max:100, ticks:{stepSize:20,backdropColor:'transparent'}, grid:{color:'rgba(255,255,255,0.06)'}, pointLabels:{font:{size:11}} }},
+    plugins: { legend: { position:'bottom', labels:{padding:16,usePointStyle:true} } }
+  }
+});
+
+// Bar: ESI comparison
+new Chart(document.getElementById('esiChart'), {
+  type: 'bar',
+  data: {
+    labels: ['ESI前1‰学科数','ESI前1%学科数','全国排名(软科)','A类学科数','博士点数量'],
+    datasets: [
+      {
+        label: '南京信息工程大学',
+        data: [3, 10, 95, 1, 11],
+        backgroundColor: 'rgba(45,212,168,0.6)',
+        borderColor: '#2dd4a8',
+        borderWidth: 1
+      },
+      {
+        label: '太原理工大学',
+        data: [2, 7, 108, 2, 18],
+        backgroundColor: 'rgba(91,127,219,0.6)',
+        borderColor: '#5b7fdb',
+        borderWidth: 1
+      },
+      {
+        label: '江苏大学',
+        data: [4, 10, 76, 1, 15],
+        backgroundColor: 'rgba(139,92,246,0.6)',
+        borderColor: '#8b5cf6',
+        borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y:{ beginAtZero:true, grid:{color:'rgba(255,255,255,0.04)'} }, x:{ grid:{display:false} } },
+    plugins: { legend: { position:'bottom', labels:{padding:16,usePointStyle:true} } }
+  }
+});
+
+// Bar: Score ladder
+new Chart(document.getElementById('scoreChart'), {
+  type: 'bar',
+  data: {
+    labels: ['南信大-大气拔尖', '江大-计算机拔尖', '南信大-10组', '太理-机械电子', '太理-数据科学', '太理-物联网', '江大-计算机20组', '江大-电气21组', '南信大-11组', '江大-机械22组'],
+    datasets: [
+      {
+        label: '专业组最低分',
+        data: [636, 608, 606, 606, 606, 604, 598, 597, 593, 590],
+        backgroundColor: [
+          'rgba(194,58,58,0.5)','rgba(194,58,58,0.5)',
+          'rgba(201,165,92,0.6)','rgba(201,165,92,0.6)','rgba(201,165,92,0.6)',
+          'rgba(45,212,168,0.5)','rgba(45,212,168,0.5)','rgba(45,212,168,0.5)',
+          'rgba(45,212,168,0.5)','rgba(45,212,168,0.5)'
+        ],
+        borderColor: '#c9a55c',
+        borderWidth: 1
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    scales: {
+      x: { min: 560, max: 650, grid: { color:'rgba(255,255,255,0.04)' } },
+      y: { grid: { display:false }, ticks:{font:{size:10}} }
+    },
+    plugins: {
+      legend: { display: false },
+      annotation: undefined
+    }
+  }
+});
+
+// Manually draw the 606 reference line after chart render
+(function draw606Line() {
+  const originalChart = Chart.helpers;
+  const chart = Chart.getChart('scoreChart');
+  if (!chart) return;
+  // Use afterDraw plugin approach
+  const plugin = {
+    id: 'refLine',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xAxis = chart.scales.x;
+      const yAxis = chart.scales.y;
+      const x = xAxis.getPixelForValue(606);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(x, yAxis.top);
+      ctx.lineTo(x, yAxis.bottom);
+      ctx.strokeStyle = 'rgba(201,165,92,0.7)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([6, 4]);
+      ctx.stroke();
+      ctx.fillStyle = '#c9a55c';
+      ctx.font = 'bold 12px "STKaiti","KaiTi",serif';
+      ctx.fillText('← 606分线 →', x + 8, yAxis.top + 20);
+      ctx.restore();
+    }
+  };
+  // Re-register chart with plugin by destroying and recreating
+  const canvas = document.getElementById('scoreChart');
+  const parent = canvas.parentElement;
+  const existing = Chart.getChart('scoreChart');
+  if (existing) existing.destroy();
+  new Chart(canvas, {
+    type: 'bar',
+    plugins: [plugin],
+    data: {
+      labels: ['南信大-大气拔尖', '江大-计算机拔尖', '南信大-10组', '太理-机械电子', '太理-数据科学', '太理-物联网', '江大-计算机20组', '江大-电气21组', '南信大-11组', '江大-机械22组'],
+      datasets: [{
+        label: '专业组最低分',
+        data: [636, 608, 606, 606, 606, 604, 598, 597, 593, 590],
+        backgroundColor: [
+          'rgba(194,58,58,0.5)','rgba(194,58,58,0.5)',
+          'rgba(201,165,92,0.6)','rgba(201,165,92,0.6)','rgba(201,165,92,0.6)',
+          'rgba(45,212,168,0.5)','rgba(45,212,168,0.5)','rgba(45,212,168,0.5)',
+          'rgba(45,212,168,0.5)','rgba(45,212,168,0.5)'
+        ],
+        borderColor: '#c9a55c',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: { min: 560, max: 650, grid: { color:'rgba(255,255,255,0.04)' } },
+        y: { grid: { display:false }, ticks:{font:{size:10}} }
+      },
+      plugins: { legend: { display: false } }
+    }
+  });
+})();
+
+// Bar: Salary growth
+new Chart(document.getElementById('salaryChart'), {
+  type: 'line',
+  data: {
+    labels: ['应届', '2年', '5年', '10年'],
+    datasets: [
+      { label:'南京信息工程大学', data:[5000,6400,8500,13600], borderColor:'#2dd4a8', backgroundColor:'rgba(45,212,168,0.1)', tension:0.4, fill:true },
+      { label:'太原理工大学', data:[5800,7500,11000,16000], borderColor:'#5b7fdb', backgroundColor:'rgba(91,127,219,0.1)', tension:0.4, fill:true },
+      { label:'江苏大学', data:[6500,8000,10000,14500], borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,0.1)', tension:0.4, fill:true }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { y:{ beginAtZero:false, min:4000, grid:{color:'rgba(255,255,255,0.04)'} }, x:{ grid:{display:false} } },
+    plugins: { legend: { position:'bottom', labels:{padding:16,usePointStyle:true} } }
+  }
+});
+
+// Doughnut: Employment direction
+new Chart(document.getElementById('employmentChart'), {
+  type: 'bar',
+  data: {
+    labels: ['国企占比%','深造率%','世界500强%','长三角就业%'],
+    datasets: [
+      { label:'南京信息工程大学', data:[28,47.8,12,67], backgroundColor:'rgba(45,212,168,0.6)', borderColor:'#2dd4a8', borderWidth:1 },
+      { label:'太原理工大学', data:[37,26,30,15], backgroundColor:'rgba(91,127,219,0.6)', borderColor:'#5b7fdb', borderWidth:1 },
+      { label:'江苏大学', data:[20,21,18,75], backgroundColor:'rgba(139,92,246,0.6)', borderColor:'#8b5cf6', borderWidth:1 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { y:{ beginAtZero:true, max:100, grid:{color:'rgba(255,255,255,0.04)'} }, x:{ grid:{display:false} } },
+    plugins: { legend: { position:'bottom', labels:{padding:16,usePointStyle:true} } }
+  }
+});
+
+} catch(e) {
+  // Chart rendering failed — show fallback message
+  document.querySelectorAll('.chart-box').forEach(function(box) {
+    box.innerHTML = '<p style="text-align:center;color:var(--gold);padding:40px;">✦ 图表渲染异常，请刷新重试 ✦</p>';
+  });
+  console.error('Chart init error:', e);
+}
+})();
+</script>
+
+</body>
+</html>
